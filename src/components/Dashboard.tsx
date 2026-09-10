@@ -13,6 +13,8 @@ import {
   FileText,
   Trophy,
   GraduationCap,
+  ClipboardCheck,
+  ListFilter,
 } from 'lucide-react';
 import {
   Student,
@@ -46,6 +48,7 @@ export default function Dashboard({
   userName,
 }: Props) {
   const [rankClass, setRankClass] = useState('all');
+  const [incompleteOnly, setIncompleteOnly] = useState(false);
   const activeStudents = students.filter((s) => inTerm(s, settings));
   const classes = [...new Set(activeStudents.map((s) => s.kelas))].sort();
   const summaries = activeStudents.map((student) => ({
@@ -59,6 +62,16 @@ export default function Dashboard({
   const progress = summaries.reduce((sum, s) => sum + s.entered, 0);
   const expected = summaries.reduce((sum, s) => sum + s.expected, 0);
   const percentage = expected ? Math.round((progress / expected) * 100) : 0;
+  const incomplete = activeStudents.length - complete;
+  const classProgress = classes.map((kelas) => {
+    const rows = summaries.filter((s) => s.student.kelas === kelas);
+    const total = rows.reduce((sum, s) => sum + s.expected, 0);
+    const filled = rows.reduce((sum, s) => sum + s.entered, 0);
+    return { kelas, rows, total, filled, pct: total ? Math.round((filled / total) * 100) : 0 };
+  });
+  const visibleClasses = incompleteOnly
+    ? classProgress.filter(({ rows }) => rows.some((s) => !s.complete))
+    : classProgress;
   const rankings = summaries
     .filter(
       (s) =>
@@ -180,7 +193,7 @@ export default function Dashboard({
       )}
       <div className="stat-grid">
         {stats.map((stat) => (
-          <div className="stat-card" key={stat.label}>
+          <div className={`stat-card stat-${stat.tone}`} key={stat.label}>
             <div className="stat-card-top">
               <span>{stat.label}</span>
               <div className={`stat-icon ${stat.tone}`}>
@@ -194,6 +207,22 @@ export default function Dashboard({
           </div>
         ))}
       </div>
+      <section className="readiness-panel" aria-labelledby="readiness-title">
+        <span className="readiness-icon" aria-hidden="true"><ClipboardCheck size={24} /></span>
+        <div className="readiness-copy">
+          <h2 id="readiness-title">Kesiapan rapor</h2>
+          <p>
+            {!activeStudents.length
+              ? 'Tambahkan santri untuk mulai memantau kesiapan rapor.'
+              : incomplete
+                ? `${incomplete} rapor belum lengkap. Periksa nilai dan mata pelajaran kelas sebelum mencetak.`
+                : 'Semua nilai pada periode ini sudah lengkap. Periksa catatan sebelum mencetak rapor.'}
+          </p>
+        </div>
+        <button className="readiness-action" onClick={() => onNavigate(incomplete ? 'bulk-grades' : 'santri')}>
+          {incomplete ? 'Periksa pengisian' : 'Lihat data santri'} <ArrowRight size={16} aria-hidden="true" />
+        </button>
+      </section>
       <div className="dashboard-grid">
         <section className="panel progress-panel">
           <div className="panel-heading">
@@ -202,6 +231,12 @@ export default function Dashboard({
               <p>Pantau kesiapan rapor setiap kelas</p>
             </div>
             <span className="soft-badge">{percentage}% terisi</span>
+          </div>
+          <div className="progress-filters" role="group" aria-label="Tampilkan progres kelas">
+            <button aria-pressed={!incompleteOnly} onClick={() => setIncompleteOnly(false)}>Semua kelas</button>
+            <button aria-pressed={incompleteOnly} onClick={() => setIncompleteOnly(true)}>
+              <ListFilter size={14} aria-hidden="true" /> Perlu dilengkapi
+            </button>
           </div>
           <div className="progress-overview">
             <div>
@@ -224,13 +259,15 @@ export default function Dashboard({
                 Tambah santri <ArrowRight size={14} />
               </button>
             </div>
+          ) : visibleClasses.length === 0 ? (
+            <div className="empty-state compact" role="status">
+              <CheckCircle2 size={30} aria-hidden="true" />
+              <h3>Semua kelas sudah lengkap</h3>
+              <p>Nilai pada periode ini sudah terisi. Rapor siap diperiksa.</p>
+            </div>
           ) : (
             <div className="class-progress-list">
-              {classes.map((kelas, index) => {
-                const rows = summaries.filter((s) => s.student.kelas === kelas);
-                const total = rows.reduce((sum, s) => sum + s.expected, 0);
-                const filled = rows.reduce((sum, s) => sum + s.entered, 0);
-                const pct = total ? Math.round((filled / total) * 100) : 0;
+              {visibleClasses.map(({ kelas, rows, total, filled, pct }, index) => {
                 return (
                   <div className="class-progress-row" key={kelas}>
                     <span className="class-number">
