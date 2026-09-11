@@ -17,7 +17,7 @@ import {
   ChevronRight,
   PenLine,
   CalendarDays,
-  CircleHelp,
+  CircleUserRound,
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useApp } from '../context/AppContext';
@@ -138,7 +138,9 @@ export default function MainLayout({
                     aria-current={active === item.id ? 'page' : undefined}
                     onClick={() => navigate(item.id)}
                   >
-                    <item.icon size={19} strokeWidth={1.8} />
+                    <span className={`nav-icon nav-icon-${item.id}`} aria-hidden="true">
+                      <item.icon size={19} strokeWidth={1.8} />
+                    </span>
                     <span>{item.label}</span>
                     {active === item.id && <span className="nav-active-dot" />}
                   </button>
@@ -159,7 +161,7 @@ export default function MainLayout({
           </strong>
         </div>
         <button className="nav-item" onClick={() => navigate('profile')}>
-          <CircleHelp size={18} />
+          <CircleUserRound size={18} aria-hidden="true" />
           <span>Profil saya</span>
         </button>
         <button className="nav-item logout-item" onClick={exit}>

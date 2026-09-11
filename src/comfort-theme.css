@@ -1,0 +1,228 @@
+/* Screen-only colors and motion: printed reports keep their existing layout. */
+@media screen {
+  .app-shell.app-shell {
+    --line: #d2e0d7;
+    background: #e9eee5;
+    background-image: radial-gradient(ellipse at 95% 0%, #d5e8df 0, transparent 48%);
+  }
+  .app-shell .desktop-sidebar,
+  .app-shell .mobile-drawer {
+    background: linear-gradient(165deg, #153e36, #0e2e29 85%);
+    border-color: #234e44;
+    color: #e3eee5;
+  }
+  .app-shell .desktop-sidebar { box-shadow: 8px 0 30px #153e3610; }
+  .app-shell .desktop-sidebar, .app-shell .drawer-inner { scrollbar-width: thin; scrollbar-color: #638677 #163c32; }
+  .app-shell .sidebar-brand strong { color: #fff4d9; }
+  .app-shell .sidebar-brand > div > span { color: #afcbbd; }
+  .app-shell .brand-dot { color: #e6ba6a; }
+  .app-shell .brand-mark { background: #fff8e8; border-color: #f0dbad; }
+  .app-shell .nav-group > p { color: #9dbdad; font-size: 10px; }
+  .app-shell .nav-item {
+    color: #d0e0d7;
+    font-size: 12px;
+    min-height: 48px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    gap: 10px;
+    transition: background-color 180ms, color 180ms, transform 180ms;
+  }
+  .app-shell .nav-item svg { color: inherit; }
+  .app-shell .nav-item:hover { background: #ffffff0e; color: #fff7e4; }
+  .app-shell .nav-item.active {
+    color: #183d32;
+    background: #e8c77e;
+    box-shadow: 0 6px 18px #051e2930;
+  }
+  .app-shell .nav-active-dot { background: #285943; width: 6px; height: 6px; }
+  .app-shell .nav-icon {
+    width: 32px; height: 32px; display: grid; place-items: center;
+    flex-shrink: 0; border-radius: 9px; background: #ffffff0c; color: #96d6bd;
+    transition: transform 180ms, background-color 180ms;
+  }
+  .app-shell .nav-icon-santri, .app-shell .nav-icon-guru { color: #adcfe9; }
+  .app-shell .nav-icon-kelas, .app-shell .nav-icon-pengguna { color: #d3bcec; }
+  .app-shell .nav-icon-bulk-grades, .app-shell .nav-icon-mapel { color: #eccb89; }
+  .app-shell .nav-item.active .nav-icon { background: #fff6d45c; color: #244c39; }
+  .app-shell .sidebar-term { background: #244a3f; border-color: #3e6250; color: #e3c78d; }
+  .app-shell .sidebar-term strong { color: #e9edcd; font-size: 11px; }
+  .app-shell .sidebar-term strong span { color: #bfcead; font-size: 10px; }
+  .app-shell .logout-item { color: #edb3a6; }
+  .app-shell .drawer-brand .icon-button { color: #d8e9dd; }
+  .app-shell .app-topbar { background: #dbe8df; border-color: #bfd3c7; }
+  .app-shell .topbar-breadcrumb { color: #547267; font-size: 12px; }
+  .app-shell .topbar-breadcrumb strong { color: #25483b; }
+  .app-shell .cloud-badge { background: #c4e1cf; border-color: #accab8; color: #26523c; font-size: 11px; }
+  .app-shell .profile-name strong { font-size: 12px; color: #244c3a; }
+  .app-shell .profile-name small { font-size: 10px; color: #577161; }
+  .app-shell .profile-button { border-color: #b8d0c0; }
+  .app-shell .avatar { background: #1c5945; color: #f8e7ba; }
+  .app-shell .icon-button { color: #466c59; background: #f5f3df80; min-width: 40px; min-height: 40px; }
+  .app-shell .app-footer { color: #557163; background: #dfe8dc; font-size: 11px; }
+  .app-shell .page-heading h1 { font-size: clamp(25px, 2.4vw, 31px); color: #173f34; }
+  .app-shell .page-heading p { color: #586f61; font-size: 12px; }
+  .app-shell .eyebrow { color: #4c705d; }
+  .app-shell .period-pill { background: #f3e8c9; color: #5d4d28; border-color: #d9cda7; font-size: 11px; border-radius: 10px; }
+  .app-shell .welcome-panel {
+    background: radial-gradient(ellipse at top right, #35775b 0, transparent 65%), linear-gradient(110deg, #123f36, #215644);
+    border: 1px solid #376b55; border-radius: 22px;
+    box-shadow: 0 12px 28px #1c48331a;
+  }
+  .app-shell .welcome-kicker { font-size: 10px; color: #c1dfc9; }
+  .app-shell .welcome-panel h2 { font-size: clamp(26px, 2.8vw, 34px); }
+  .app-shell .welcome-panel h2 span { color: #efd392; }
+  .app-shell .welcome-copy > p { color: #c2d8c8; font-size: 12px; max-width: 440px; }
+  .app-shell .welcome-art { right: 30px; }
+  .app-shell .arch-front { color: #f2d697; border-color: #d1b77570; background: linear-gradient(160deg, #b5b17445, #4f785625); }
+  .app-shell .welcome-link { color: #e0e9c9; font-size: 12px; }
+  .app-shell .button-white { background: #efd399; color: #244832; border: 1px solid #f2ddb1; }
+  .app-shell .stat-card { border-radius: 17px; border-color: #c1d5c8; box-shadow: 0 5px 14px #284d2b06; }
+  .app-shell .stat-emerald { background: #c9e5d7; }
+  .app-shell .stat-blue { background: #d3e3ed; border-color: #bfd2de; }
+  .app-shell .stat-amber { background: #f0dfb7; border-color: #e0cca0; }
+  .app-shell .stat-purple { background: #e0d8eb; border-color: #cfc2df; }
+  .app-shell .stat-card-top { color: #385848; font-size: 12px; }
+  .app-shell .stat-value { color: #1b4736; font-size: 34px; }
+  .app-shell .stat-card > p { color: #506851; font-size: 11px; }
+  .app-shell .stat-icon { width: 39px; height: 39px; border-radius: 12px; box-shadow: 0 3px 0 #ffffff50 inset; }
+  .app-shell .stat-icon.emerald { background: #a3d3bc; color: #14563c; }
+  .app-shell .stat-icon.blue { background: #b1cfdf; color: #265972; }
+  .app-shell .stat-icon.amber { background: #e6c77e; color: #71501a; }
+  .app-shell .stat-icon.purple { background: #c9b5dc; color: #5a347f; }
+  .app-shell .panel { background: #f8f4e9; border-color: #d3ddcf; border-radius: 17px; }
+  .app-shell .panel-heading h2 { font-size: 15px; color: #2d4d39; }
+  .app-shell .panel-heading p { font-size: 11px; color: #5d7460; }
+  .app-shell .soft-badge { color: #385e39; background: #dde9c9; border-color: #c8d8ac; font-size: 10px; }
+  .app-shell .progress-panel { background: #ecf2e3; }
+  .app-shell .progress-overview { border-color: #d5e0ca; padding-top: 14px; }
+  .app-shell .progress-overview span { color: #526f50; font-size: 11px; }
+  .app-shell .progress-track { background: #d4e0c8; height: 6px; }
+  .app-shell .progress-track > div { background: linear-gradient(90deg, #238065, #79aa5d); }
+  .app-shell .class-progress-row { border-color: #d7e1cf; }
+  .app-shell .class-number { background: #dce6cf; border-color: #cad8b9; color: #4b6740; font-size: 10px; }
+  .app-shell .class-progress-info strong { color: #3d5b36; font-size: 12px; }
+  .app-shell .class-progress-info > span { color: #5e7653; font-size: 10px; }
+  .app-shell .class-progress-meter > span { color: #44683c; font-size: 11px; }
+  .app-shell .panel-footer-link { color: #365e37; border-color: #d1ddc2; background: #e4ecd5; font-size: 11px; }
+  .app-shell .quick-panel { background: #efe6d2; border-color: #daceb4; }
+  .app-shell .quick-panel .panel-heading { padding-bottom: 16px; }
+  .app-shell .quick-action { margin: 0 12px 10px; width: calc(100% - 24px); border-radius: 12px; padding: 12px; background: #faf3e2; border: 1px solid #ddceb0; }
+  .app-shell .quick-action:last-child { padding-bottom: 12px; }
+  .app-shell .quick-action strong { color: #3f553a; font-size: 12px; }
+  .app-shell .quick-action small { color: #6a6c51; font-size: 10px; }
+  .app-shell .quick-action > svg { color: #6a714d; }
+  .app-shell .quick-icon { display: grid; place-items: center; border: 0; color: #275b46; background: #c8ddbf; transition: transform 180ms; }
+  .app-shell .quick-action:nth-of-type(2) .quick-icon { background: #ded0e8; color: #6c4685; }
+  .app-shell .quick-action:nth-of-type(3) .quick-icon { background: #eed39e; color: #865d20; }
+  .app-shell .reminder-panel { background: #d5dfce; border-color: #bacaac; border-radius: 17px; }
+  .app-shell .reminder-icon { display: grid; place-items: center; background: #aec597; width: 38px; height: 38px; border-radius: 12px; color: #395525; }
+  .app-shell .reminder-panel h3 { font-size: 14px; color: #385130; }
+  .app-shell .reminder-panel p { color: #4d6543; font-size: 12px; }
+  .app-shell .reminder-panel button { color: #34552b; font-size: 11px; }
+  .app-shell .ranking-name strong { color: #445c36; font-size: 12px; }
+  .app-shell .ranking-name small, .app-shell .activity-row small { color: #687453; font-size: 10px; }
+  .app-shell .ranking-row { border-color: #e1e4d1; }
+  .app-shell .ranking-score { color: #46723e; }
+  .app-shell .rank-number { background: #e4e8d4; color: #536342; }
+  .app-shell .rank-number.first { background: #edcf8d; color: #74551f; }
+  .app-shell .activity-row p { color: #526343; font-size: 12px; }
+  .app-shell .activity-dot { background: #78a168; box-shadow: 0 0 0 4px #e2e9d4; }
+  .app-shell .academic-table th { background: #dfe8cf; color: #435d35; font-size: 11px; }
+  .app-shell .academic-table td { color: #4b6340; }
+  .app-shell .academic-table th, .app-shell .academic-table td { border-color: #dce4ce; }
+  .app-shell .compact-select, .app-shell .class-search { background: #f8f4e8; color: #45613c; border-color: #c8d5bc; }
+  .app-shell .compact-select { font-size: 11px; }
+  .app-shell .empty-state, .app-shell .empty-state p { color: #567248; }
+  .app-shell .empty-state h3 { color: #355530; }
+  .app-shell .class-card { background: #e1ebd6; border-top: 4px solid #5e966f; }
+  .app-shell .class-card:nth-child(3n+2) { background: #dce7ed; border-top-color: #6c93af; }
+  .app-shell .class-card:nth-child(3n) { background: #ece1cd; border-top-color: #bd9650; }
+  .app-shell .class-card-icon { color: #386644; background: #c6d9b6; }
+  .app-shell .class-card:nth-child(3n+2) .class-card-icon { color: #315e78; background: #c1d6e3; }
+  .app-shell .class-card:nth-child(3n) .class-card-icon { color: #7d5b2a; background: #e4c994; }
+  .app-shell .class-card h2 { color: #36573c; }
+  .app-shell .class-card > p, .app-shell .class-card-stats span, .app-shell .class-card-progress { color: #546a4d; font-size: 12px; }
+  .app-shell .class-card .panel-footer-link { background: #ffffff70; min-height: 42px; }
+  .app-shell .class-card-stats { border-color: #bdcdb5; }
+  .app-shell .readiness-panel {
+    display: flex; align-items: center; gap: 16px; padding: 20px 24px;
+    background: #d9e8df; border: 1px solid #b7d0bf; border-radius: 17px;
+  }
+  .app-shell .readiness-icon { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 14px; background: #b5d3bf; color: #2b6245; }
+  .app-shell .readiness-copy { flex: 1; min-width: 0; }
+  .app-shell .readiness-copy h2 { font-size: 14px; font-weight: 800; color: #254d36; }
+  .app-shell .readiness-copy p { font-size: 12px; color: #4f6b56; margin-top: 5px; line-height: 1.7; }
+  .app-shell .readiness-action { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 15px; border-radius: 10px; background: #246148; color: #fff8e3; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .app-shell .progress-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 23px; }
+  .app-shell .progress-filters button { display: flex; align-items: center; gap: 6px; padding: 8px 11px; border-radius: 8px; border: 1px solid #c3d2b6; color: #48673f; font-size: 11px; }
+  .app-shell .progress-filters button[aria-pressed='true'] { background: #346c4b; border-color: #346c4b; color: #fff8e8; }
+  .app-shell .app-main .bg-white { background-color: #faf6eb; }
+  .app-shell .app-main .bg-slate-50 { background-color: #e8efdf; }
+  .app-shell .app-main .text-slate-400 { color: #63765f; }
+  .app-shell .app-main input:not([type='checkbox']):not([type='radio']):not([type='file']),
+  .app-shell .app-main textarea, .app-shell .app-main select { border-color: #bbcdb2; }
+  .app-shell .app-main table thead { background: #dce7d0; }
+  .app-shell .app-main table tbody tr:nth-child(even) { background: #edf0df60; }
+  .app-shell button, .login-page button {
+    transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    touch-action: manipulation;
+  }
+  .app-shell button:not(:disabled):active, .login-page button:not(:disabled):active { transform: scale(.98); }
+  .app-shell button:disabled, .login-page button:disabled { transform: none; box-shadow: none; }
+  .app-shell .button-primary, .login-page .button-primary { background: linear-gradient(120deg, #17634b, #2d7b55); box-shadow: 0 5px 13px #1b664020; }
+  .app-shell button:focus-visible, .login-page button:focus-visible { outline: 3px solid #b27928; outline-offset: 3px; }
+  .app-shell .desktop-sidebar button:focus-visible, .app-shell .mobile-drawer button:focus-visible { outline-color: #f1d391; }
+  .login-page .login-story { background: radial-gradient(ellipse at top right, #356b4c 0, transparent 65%), #153e31; }
+  .login-page .login-story h1 em { color: #eacd96; }
+  .login-page .login-form-side { background: radial-gradient(ellipse at top right, #d3e2c2 0, transparent 60%), #eee6d1; }
+  .login-page .login-form-wrap { background: #f8f3e4; padding: 34px; max-width: 435px; border: 1px solid #d6cfb8; border-radius: 24px; box-shadow: 0 18px 50px #3c5d2910; }
+  .login-page .login-icon { background: #d0dfbd; border-color: #b5cba0; color: #3d663a; border-radius: 15px; }
+  .login-page .login-input { background: #eeeeda; border-color: #c7cdb5; color: #5c7155; }
+  .login-page .login-input input { font-size: 13px; color: #2c5035; }
+  .login-page .login-input input::placeholder { color: #6d7f65; }
+  .login-page .login-description, .login-page .login-help, .login-page .login-note, .login-page .login-form-side footer { color: #627254; }
+  .login-page .login-description { font-size: 13px; }
+  .login-page .login-help, .login-page .login-note p { font-size: 11px; }
+  .login-page .login-form > label { font-size: 12px; }
+}
+@media screen and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .app-shell :is(.button-primary,.button-white,.readiness-action):not(:disabled):hover,
+  .login-page .login-submit:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 8px 18px #193f3626; }
+  .app-shell .quick-action:not(:disabled):hover { transform: translateY(-2px); background: #fff6de; box-shadow: 0 5px 12px #765a2010; }
+  .app-shell .quick-action:not(:disabled):hover .quick-icon,
+  .app-shell .nav-item:not(:disabled):hover .nav-icon { transform: rotate(-6deg) scale(1.06); }
+  .app-shell .panel-footer-link:not(:disabled):hover { background: #d6e5c8; }
+  .app-shell .ranking-row:not(:disabled):hover { background: #e9edd9; }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .app-shell .welcome-panel, .app-shell .stat-card, .app-shell .readiness-panel,
+  .login-page .login-form-wrap { animation: comfort-appear 420ms ease-out both; }
+  .app-shell .stat-card:nth-child(2) { animation-delay: 50ms; }
+  .app-shell .stat-card:nth-child(3) { animation-delay: 100ms; }
+  .app-shell .stat-card:nth-child(4) { animation-delay: 150ms; }
+  @keyframes comfort-appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media screen and (max-width: 767px) {
+  .app-shell .readiness-panel { flex-wrap: wrap; padding: 18px; gap: 12px; }
+  .app-shell .readiness-copy { flex-basis: calc(100% - 62px); }
+  .app-shell .readiness-action { width: 100%; min-height: 44px; }
+  .app-shell .stat-card-top { font-size: 11px; }
+  .app-shell .stat-value { font-size: 29px; }
+  .app-shell .stat-card > p { font-size: 10px; }
+  .app-shell .stat-icon { width: 32px; height: 32px; }
+  .app-shell .welcome-panel { padding: 24px; }
+  .app-shell .welcome-copy { max-width: 100%; }
+  .app-shell .welcome-art { opacity: .16; right: -80px; }
+  .app-shell .welcome-actions { gap: 14px; flex-wrap: wrap; }
+  .app-shell .period-pill { font-size: 10px; }
+  .app-shell .class-progress-meter { width: 80px; }
+  .app-shell .cloud-badge { font-size: 10px; }
+  .login-page .login-form-wrap { padding: 27px 22px; }
+  .login-page .login-form-side { padding: 24px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell *, .app-shell *::before, .app-shell *::after,
+  .login-page *, .login-page *::before, .login-page *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

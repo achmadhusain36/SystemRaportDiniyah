@@ -130,10 +130,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
       setLoadError('');
       try {
         if (!firebaseUser) {
-          // No user directory requests or writes before authentication.
-          const publicSettings = await dbService.getSettings();
-          if (!cancelled && publicSettings)
-            settingsHook.setSettings(publicSettings);
+          // Settings are protected too; use local branding until sign-in.
           return;
         }
         const [students, subjects, mappings, teachers, settings, users, logs] =
